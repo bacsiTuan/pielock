@@ -1,12 +1,12 @@
 # Pie-lock
 All lock module  using redis for control.
 # Installation
-With pypi:
+With Pypi:
 ``` bash
 pip install pie-lock
 ```
 
-With github:
+With Github:
 ``` bash
 pip install git+https://github.com/HKer-MuCoi/pielock.git
 ```
