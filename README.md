@@ -1,17 +1,24 @@
-Usage Distributed Lock
------
-    key = "test1"
-    success, msg = redis_lock.acquire(key)
-    print(msg)
-    if not success:
-        print(msg)
-    redis_lock.release(key)
+# Pie-lock
+All lock module  using redis for control.
 
+Installation
+``` bash
+pip install pie-lock
+```
+
+Usage Distributed Lock
+``` bash
+key = "test1"
+success, msg = redis_lock.acquire(key)
+print(msg)
+if not success:
+    print(msg)
+redis_lock.release(key)
+```
 
 Usage Optimistic Lock
------
-    
-    def test_optimistic_lock(self):
+``` bash
+def test_optimistic_lock(self):
     is_locked1, msg = redis_lock.acquire("key1")
     if not is_locked1:
         print(msg)
@@ -27,13 +34,12 @@ Usage Optimistic Lock
     is_locked4, msg = redis_lock.acquire("key1")
     if not is_locked4:
         print(msg)
-
+```
 Configuration
 -------------
 
 Redis configuration
-~~~~~~~~
-
+``` bash
 from pie_lock.backends import OptimisticLock
 
 redis_lock = DistributedLock(
@@ -55,7 +61,7 @@ localhost on port 6379, using database 0.
 
 
 ``DEFAULT_TIMEOUT`` (default: 60)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
 
 If another client has already obtained the lock, sleep for a maximum of
 this many seconds before giving up. A value of 0 means no wait (give up
