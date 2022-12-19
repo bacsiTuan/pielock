@@ -10,9 +10,9 @@ redis_lock = OptimisticLock(
     timeout=2,
 )
 redis_lock.get_client(
-    host="redis-19821.c295.ap-southeast-1-1.ec2.cloud.redislabs.com",
+    host="localhost",
     port=19821,
-    password="boyhandsome",
+    password="password",
     username="default",
     db=0,
     socket_timeout=2,
