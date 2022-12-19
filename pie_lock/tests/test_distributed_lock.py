@@ -2,19 +2,19 @@
 # -*- coding: utf-8 -*-
 import threading
 import time
-from pylock.backends import RedisLock
+from pie_lock.backends import DistributedLock
 import unittest
 
-redis_lock = RedisLock(
+redis_lock = DistributedLock(
     expires=5,
     timeout=5,
     retry_after=1,
     tries=32,
 )
 redis_lock.get_client(
-    host="localhost",
+    host="redis-19821.c295.ap-southeast-1-1.ec2.cloud.redislabs.com",
     port=19821,
-    password="password",
+    password="boyhandsome",
     username="default",
     db=0
 )
@@ -67,8 +67,8 @@ def __lock1():
         print(e)
 
 
-class TestStringMethods(unittest.TestCase):
-    def test_redis_lock(self):
+class TestDistributedLock(unittest.TestCase):
+    def test_distributed_lock(self):
         test_lock()
 
     def test_benchmark_distributed_lock100t(self):

@@ -4,11 +4,11 @@ import time
 
 from redis import StrictRedis
 
-from pylock.backends.base_lock import BaseLock
+from pie_lock.backends.base_lock import BaseLock
 
 
-class RedisLock(BaseLock):
-    url_scheme = 'redis_lock'
+class DistributedLock(BaseLock):
+    url_scheme = "distributed_lock"
 
     def get_client(self, **connection_args) -> None:
         host = str(connection_args.get('host')) or 'localhost'
@@ -27,7 +27,7 @@ class RedisLock(BaseLock):
         )
 
     def __init__(self, expires: int, timeout: int, tries=32, prefix="", retry_after=1):
-        super(RedisLock, self).__init__(expires, timeout, tries, prefix, retry_after)
+        super(DistributedLock, self).__init__(expires, timeout, tries, prefix, retry_after)
         self.start_time = time.time()
 
     def acquire(self, redis_key: str) -> [bool, str]:
