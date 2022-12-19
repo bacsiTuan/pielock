@@ -1,6 +1,6 @@
 # Pie-lock
 All lock module  using redis for control.
-# Installation
+## Installation
 With Pypi:
 ``` bash
 pip install pie-lock
@@ -11,7 +11,7 @@ With Github:
 pip install git+https://github.com/HKer-MuCoi/pielock.git
 ```
 
-Usage Distributed Lock
+## Usage Distributed Lock
 ``` python3
 key = "test1"
 success, msg = redis_lock.acquire(key)
@@ -21,7 +21,7 @@ if not success:
 redis_lock.release(key)
 ```
 
-Usage Optimistic Lock
+## Usage Optimistic Lock
 ``` python3
 def test_optimistic_lock(self):
     is_locked1, msg = redis_lock.acquire("key1")
@@ -40,8 +40,7 @@ def test_optimistic_lock(self):
     if not is_locked4:
         print(msg)
 ```
-Configuration
--------------
+## Configuration
 
 Redis configuration
 ``` python3
