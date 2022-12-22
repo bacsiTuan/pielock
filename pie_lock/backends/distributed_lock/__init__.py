@@ -13,7 +13,7 @@ class DistributedLock(BaseLock):
     def get_client(self, **connection_args) -> None:
         host = str(connection_args.get('host')) or 'localhost'
         port = int(connection_args.get('port')) or 6379
-        password = str(connection_args.get('password'))
+        password = str(connection_args.get('password')) or None
         db = int(connection_args.get('db')) or 0
         username = str(connection_args.get('username')) or None
         connection_pool = connection_args.get('connection_pool') or None
