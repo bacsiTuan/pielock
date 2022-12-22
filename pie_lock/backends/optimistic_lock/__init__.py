@@ -7,7 +7,7 @@ from redis import StrictRedis
 from pie_lock.backends.base_lock import BaseLock
 
 
-class OptimisticLock(BaseLock):
+class OptimisticLock:
     url_scheme = "optimistic_lock"
 
     def get_client(self, **connection_args) -> None:
@@ -28,11 +28,12 @@ class OptimisticLock(BaseLock):
             socket_timeout=socket_timeout,
         )
 
-    def __init__(self, expires: int, timeout: int, tries=32, prefix="", retry_after=1):
-        super(OptimisticLock, self).__init__(expires, timeout, tries, prefix, retry_after)
+    def __init__(self, prefix=""):
+        self.client = None
+        self.prefix = prefix
         self.start_time = time.time()
 
-    def acquire(self, redis_key: str) -> [bool, str]:
+    def acquire(self, redis_key: str, expires: int) -> [bool, str]:
         redis = self.client
         if not redis:
             return False, "No redis client found"
@@ -40,7 +41,7 @@ class OptimisticLock(BaseLock):
         allowed = redis.setnx(key, "ok")
         if not allowed:
             return False, "Lock already acquired by another process"
-        redis.expire(key, int(self.expires))
+        redis.expire(key, int(expires))
         return True, "Lock acquired key: {}".format(key)
 
     def release(self, redis_key: str) -> [bool, str]:
