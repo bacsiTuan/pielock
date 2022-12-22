@@ -9,11 +9,11 @@ class OptimisticLock:
     url_scheme = "optimistic_lock"
 
     def get_client(self, **connection_args) -> None:
-        host = str(connection_args.get("host")) or "localhost"
-        port = int(connection_args.get("port")) or 6379
-        password = str(connection_args.get("password")) or None
-        db = int(connection_args.get("db")) or 0
-        username = str(connection_args.get("username")) or None
+        host = connection_args.get("host") or "localhost"
+        port = connection_args.get("port") or 6379
+        password = connection_args.get("password") or None
+        db = connection_args.get("db") or 0
+        username = connection_args.get("username") or None
         connection_pool = connection_args.get("connection_pool") or None
         socket_timeout = connection_args.get("socket_timeout") or None
         self.client = StrictRedis(
