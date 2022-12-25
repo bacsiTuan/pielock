@@ -12,7 +12,7 @@ pip install git+https://github.com/HKer-MuCoi/pielock.git
 ```
 
 ## Usage Distributed Lock
-``` python3
+``` python
 key = "test1"
 success, msg = redis_lock.acquire(key)
 print(msg)
@@ -22,7 +22,7 @@ redis_lock.release(key)
 ```
 
 ## Usage Optimistic Lock
-``` python3
+``` python
 def test_optimistic_lock(self):
     is_locked1, msg = redis_lock.acquire("key1")
     if not is_locked1:
@@ -43,7 +43,7 @@ def test_optimistic_lock(self):
 ## Configuration
 
 Redis configuration
-``` python3
+``` python
 from pie_lock.backends import OptimisticLock
 
 redis_lock = DistributedLock(
