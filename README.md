@@ -1,5 +1,15 @@
 # Pie-lock
-All lock module  using redis for control.
+
+<p align="center">
+    <em>All lock module  using redis for control.</em>
+</p>
+<a href="https://pypi.org/project/pie-lock" target="_blank">
+    <img src="https://img.shields.io/pypi/v/fastapi?color=%2334D058&label=pypi%20package" alt="Package version">
+</a>
+<a href="https://pypi.org/project/pie-lock" target="_blank">
+    <img src="https://img.shields.io/pypi/pyversions/fastapi.svg?color=%2334D058" alt="Supported Python versions">
+</a>
+
 ## Installation
 With Pypi:
 ``` bash
