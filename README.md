@@ -18,7 +18,7 @@ pip install pie-lock
 
 With Github:
 ``` bash
-pip install git+https://github.com/HKer-MuCoi/pielock.git
+pip install git+https://github.com/bacsiTuan/pielock.git
 ```
 
 ## Usage Distributed Lock
