@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pie-lock"
-version = "0.1.6"
-description = "A library for python distributed lock and optimistic lock"
+version = "0.1.7"
+description = "A library for python distributed lock, optimistic lock and limiter"
 authors = ["TuanDC <tuandao864@gmail.com>"]
 maintainers = ["TuanDC <tuandao864@gmail.com>"]
 packages = [
@@ -11,7 +11,7 @@ packages = [
 readme = "README.md"
 homepage = "https://pypi.org/project/pie-lock"
 repository = "https://github.com/HKer-MuCoi/pielock"
-keywords = ["distributed lock", "lock", "redis lock"]
+keywords = ["distributed lock", "lock", "redis lock", "limiter"]
 
 [tool.poetry.dependencies]
 python = "^3.6.2"
