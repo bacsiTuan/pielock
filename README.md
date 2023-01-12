@@ -54,7 +54,7 @@ def test_optimistic_lock(self):
 
 Redis configuration
 ``` python
-from pie_lock.backends import OptimisticLock
+from pie_lock.backends import DistributedLock
 
 redis_lock = DistributedLock(
     expires=5,
@@ -82,7 +82,29 @@ right away).
 
 The default timeout can be overridden when instantiating the lock.
 
-``DEFAULT_EXPIRES`` (default: 10)
+## Limiter
+Based on sliding window algorithm
+``` python
+from pie_lock.backends import Limiter, TimeUnit
+
+redis = Limiter(
+    host="localhost",
+    port=19821,
+    password="passsword",
+    username="default",
+    socket_timeout=2,
+)
+
+for i in range(6):
+    allow, msg = redis.allow(redis_key="mylist", per=TimeUnit.SECOND, count=2)
+    if not allow:
+        print(msg)
+time.sleep(1)
+allow, msg = redis.allow(redis_key="mylist", per=TimeUnit.SECOND, count=2)
+if not allow:
+    print(msg)
+```
+
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We consider any existing lock older than this many seconds to be invalid
