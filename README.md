@@ -1,7 +1,7 @@
 # Pie-lock
 
 <p align="center">
-    <em>All lock module  using redis for control.</em>
+    <em>Lock modules using redis</em>
 </p>
 <a href="https://pypi.org/project/pie-lock" target="_blank">
     <img src="https://img.shields.io/pypi/v/fastapi?color=%2334D058&label=pypi%20package" alt="Package version">
