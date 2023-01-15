@@ -5,7 +5,7 @@ import time
 from pie_lock.backends import Limiter, TimeUnit
 import unittest
 redis = Limiter(
-    host="redis-19821.c295.ap-southeast-1-1.ec2.cloud.redislabs.com",
+    host="localhost",
     port=19821,
     password="boyhandsome",
     username="default",
