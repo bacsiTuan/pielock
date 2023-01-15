@@ -10,7 +10,7 @@ packages = [
 ]
 readme = "README.md"
 homepage = "https://pypi.org/project/pie-lock"
-repository = "https://github.com/HKer-MuCoi/pielock"
+repository = "https://github.com/bacsiTuan/pielock"
 keywords = ["distributed lock", "lock", "redis lock", "limiter"]
 
 [tool.poetry.dependencies]
